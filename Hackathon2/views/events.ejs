@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Present Events</title>
+</head>
+
+<body>
+    <div class="flex-container">
+        <h1>Events</h1>
+        <% if (user) { %>
+            <p>Logged in as: <%= user %>
+            </p>
+            <a href="/logout">Logout</a>
+            <% } %>
+                <div class="flex-container" style="flex-wrap: wrap;">
+                    <% events.forEach(event=> { %>
+                        <div class="flex-box">
+                            <div class="color-box"
+                                style="background-color: lightcoral; border: 1px solid white; color: white; padding: 10px; border-radius: 10px;">
+                                <p>Event: <%= event.eventName %>
+                                </p>
+                                <p>Date: <%= event.date.toDateString() %>
+                                </p>
+                                <form action="/buy-event/<%= event._id %>" method="POST">
+                                    <a href="/volunteer"><button type="submit">Register</button></a>
+                                </form>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Manage Events</title>
+</head>
+
+<body>
+    <div class="flex-container">
+        <h1>Manage Events</h1>
+        <p>Logged in as: <%= user %>
+        </p>
+        <a href="/logout">Logout</a>
+        <% if (user==='chethanapotukanam@gmail.com' ) { %>
+            
+            <form action="/add-event" method="POST">
+                <label for="event">Event Name:</label>
+                <input type="text" name="eventName" placeholder="Event Name" required>
+                <label for="date">Date:</label>
+                <input type="date" name="date" required>
+                <button type="submit">Add Event</button>
+            </form>
+
+            <% } %>
+                <div class="flex-container" style="flex-wrap: wrap;">
+                    <% events.forEach(event=> { %>
+                        <div class="flex-box">
+                            <div class="color-box"
+                                style="background-color:lightgray; border: 1px solid white; color: white; padding: 10px; border-radius: 10px;">
+                                <p>Event: <%= event.eventName %>
+                                </p>
+                                <p>Date: <%= event.date.toDateString() %>
+                                </p>
+                                
+                            </div>
+                            <% if (user==='chethanapotukanam@gmail.com' ) { %>
+                                <form action="/delete-event/<%= event._id %>" method="POST">
+                                    <button type="submit">Delete</button>
+                                </form>
+                                <% } %>
+                        </div>
+                        <% }) %>
+                </div>
+    </div>
+</body>
+
+</html>
