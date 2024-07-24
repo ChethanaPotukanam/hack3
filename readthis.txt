@@ -1,0 +1,10 @@
+// ALL THE NECESSARY NODE PACKAGES SHOULD BE INSTALLED BEFORE EXECUTING
+first type " node app.js " in cd Desktop/hack3/Hackathon2
+Then open terminal in cd Desktop/hack3/EventManager location and type " php -S localhost:4000 "
+////////CHANGE LOCATION IF FILES ARE PLACED IN ANOTHER PLACE\\\\\\\\\\\\\\
+ Then open " http://localhost:4000/home.php " in chrome
+Also observe the following :
+    http://localhost:3002/chart
+    http://localhost:3002/
+    http://localhost:3002/event-analysis 
+    in chrome browser
